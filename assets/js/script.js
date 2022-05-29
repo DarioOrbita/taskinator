@@ -10,6 +10,14 @@ var taskFormHandler = function(event) {
     var taskNameInput = document.querySelector("input[name='task-name']").value;
     var taskTypeInput = document.querySelector("select[name='task-type']").value;
 
+    if (!taskNameInput || !taskTypeInput) {
+
+        alert("You need to fill out the task form.");
+
+        return false;
+
+    }
+
     //turn the data into an object to pass an an argument
     var taskDataObj = {
 
@@ -20,6 +28,8 @@ var taskFormHandler = function(event) {
 
     //send it as an argument to createTaskEl
     createTaskEl(taskDataObj);
+
+    formEl.reset();
     
 }
 
